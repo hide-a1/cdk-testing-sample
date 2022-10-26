@@ -7,21 +7,20 @@ import { CounterHarness } from './counter-harness';
 describe('CounterComponent', () => {
   let component: CounterComponent;
   let fixture: ComponentFixture<CounterComponent>;
-  let harness: CounterHarness;
+  // ハーネス有り
+  // let harness: CounterHarness;
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
       declarations: [CounterComponent],
     }).compileComponents();
-  });
-
-  beforeEach(async () => {
     fixture = TestBed.createComponent(CounterComponent);
     component = fixture.componentInstance;
-    harness = await TestbedHarnessEnvironment.harnessForFixture(
-      fixture,
-      CounterHarness
-    );
+    // ハーネス有り
+    // harness = await TestbedHarnessEnvironment.harnessForFixture(
+    //   fixture,
+    //   CounterHarness
+    // );
     fixture.detectChanges();
   });
 
