@@ -1,4 +1,4 @@
-// couter-harness.ts
+// counter-harness.ts
 
 import { ComponentHarness } from '@angular/cdk/testing';
 import { MatButtonHarness } from '@angular/material/button/testing';
@@ -10,6 +10,7 @@ export class CounterHarness extends ComponentHarness {
   // locatorFor = 要素を特定するための関数
   private getDisplayCountLocator = this.locatorFor('.count-display');
 
+  // MatButtonHarness = AngularMaterialが用意してくれているハーネス便利プロパティがいっぱい
   private getIncrementLocator = this.locatorFor(
     MatButtonHarness.with({
       text: 'Increment',
