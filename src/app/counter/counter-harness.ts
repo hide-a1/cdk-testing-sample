@@ -17,6 +17,12 @@ export class CounterHarness extends ComponentHarness {
     })
   );
 
+  private getClearLocator = this.locatorFor(
+    MatButtonHarness.with({
+      text: 'Clear',
+    })
+  );
+
   async getDisplayedCount(): Promise<string> {
     const display = await this.getDisplayCountLocator();
     return await display.text();
@@ -24,6 +30,11 @@ export class CounterHarness extends ComponentHarness {
 
   async increment(): Promise<void> {
     const button = await this.getIncrementLocator();
+    await button.click();
+  }
+
+  async clear(): Promise<void> {
+    const button = await this.getClearLocator();
     await button.click();
   }
 }

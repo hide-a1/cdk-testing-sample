@@ -8,7 +8,7 @@ describe('CounterComponent', () => {
   let component: CounterComponent;
   let fixture: ComponentFixture<CounterComponent>;
   // ハーネス有り
-  // let harness: CounterHarness;
+  let harness: CounterHarness;
 
   beforeEach(async () => {
     TestBed.configureTestingModule({
@@ -17,10 +17,10 @@ describe('CounterComponent', () => {
     fixture = TestBed.createComponent(CounterComponent);
     component = fixture.componentInstance;
     // ハーネス有り
-    // harness = await TestbedHarnessEnvironment.harnessForFixture(
-    //   fixture,
-    //   CounterHarness
-    // );
+    harness = await TestbedHarnessEnvironment.harnessForFixture(
+      fixture,
+      CounterHarness
+    );
     fixture.detectChanges();
   });
 
@@ -56,5 +56,13 @@ describe('CounterComponent', () => {
     // await harness.increment();
 
     // expect(component.increment.emit).toHaveBeenCalled();
+  });
+
+  it('should emit clear', async () => {
+    spyOn(component.clear, 'emit');
+
+    await harness.clear();
+
+    expect(component.clear.emit).toHaveBeenCalled();
   });
 });
